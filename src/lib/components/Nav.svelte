@@ -1,6 +1,7 @@
 <script>
 	import { page } from '$app/stores';
-	let isLogIn = false;
+	import authStore from '$lib/stores/auth.store';
+
 	let isOpen = false;
 	function toggleMenu() {
 		isOpen = !isOpen;
@@ -24,7 +25,7 @@
 		</button>
 		<div class:show={isOpen} class="collapse navbar-collapse" id="navbarNav">
 			<ul class="navbar-nav">
-				{#if isLogIn}
+				{#if $authStore.isLoggedIn}
 					<li class="nav-item">
 						<a class="nav-link" aria-current="page" href="/">Home</a>
 					</li>
